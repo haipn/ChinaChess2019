@@ -1,0 +1,26 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item> <!-- For 2.x version -->
+    </style>
+
+    <declare-styleable name="SvgImageView">
+        <attr name="android:src" />
+    </declare-styleable>
+    <declare-styleable name="SvgDrawable">
+        <attr name="android:src" />
+        <attr name="android:antialias" />
+        <attr name="android:filter" />
+        <attr name="android:dither" />
+        <attr name="android:gravity" />
+    </declare-styleable>
+
+    <style name="styleName" parent="android:Widget.ListView">
+        <item name="android:background">#c0a0e0</item>
+        <item name="android:choiceMode">singleChoice</item>
+        <item name="android:padding">10dp</item>
+    </style>
+
+</resources>

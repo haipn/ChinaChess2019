@@ -1,0 +1,68 @@
+apply plugin: 'com.android.application'
+import org.apache.tools.ant.taskdefs.condition.Os
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.0"
+    useLibrary 'org.apache.http.legacy'
+    defaultConfig {
+        applicationId "vn.singviet.cotuong2019"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    externalNativeBuild {
+        ndkBuild {
+            path file('src/main/jni/Android.mk')
+        }
+    }
+
+//    sourceSets.main {
+//        jniLibs.srcDir 'src/main/libs' //set .so files location to libs instead of jniLibs
+//        jni.srcDirs = [] //disable automatic ndk-build call
+//    }
+//
+//    // add a task that calls regular ndk-build(.cmd) script from app directory
+//    task ndkBuild(type: Exec) {
+//        if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+//            commandLine 'ndk-build.cmd', '-C', file('src/main').absolutePath
+//        } else {
+//            commandLine 'ndk-build', '-C', file('src/main').absolutePath
+//        }
+//    }
+
+    // add this task as a dependency of Java compilation
+//    tasks.withType(JavaCompile) {
+//        compileTask -> compileTask.dependsOn ndkBuild
+//    }
+//    externalNativeBuild {
+//        cmake {
+//            path "src/main/cpp/CMakeLists.txt"
+//            version "3.10.2"
+//        }
+//    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'com.google.android.gms:play-services-ads:18.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'com.pixplicity.sharp:library:1.1.0'
+}
