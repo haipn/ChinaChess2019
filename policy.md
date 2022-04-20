@@ -58,8 +58,3 @@ Contact Us
 haipn.coc@gmail.com
 
 If you have any questions or suggestions about my Privacy Policy, do not hesitate to contact me.
-Write
-Preview
-           
-Write a comment or drag your files here…
-Markdown and quick actions are supported
